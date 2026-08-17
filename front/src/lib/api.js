@@ -1,31 +1,44 @@
+import { browser } from '$app/environment';
+
 const API = 'http://localhost:3000';
 
 export async function get(path, token) {
   const h = token ? { 'Authorization': `Bearer ${token}` } : {};
   const res = await fetch(`${API}${path}`, { headers: h });
+
   if (!res.ok) throw new Error(`${res.status}`);
+
   return res.json();
 }
 
 export async function post(path, body, token) {
   const h = { 'Content-Type': 'application/json' };
-  if (token) h['Authorization'] = `Bearer ${token}`;
+
+  if (token) {
+    h['Authorization'] = `Bearer ${token}`;
+  }
+
   const res = await fetch(`${API}${path}`, {
     method: 'POST',
     headers: h,
     body: JSON.stringify(body)
   });
+
   if (!res.ok) throw new Error(`${res.status}`);
+
   return res.json();
 }
 
 export async function del(path, token) {
   const h = token ? { 'Authorization': `Bearer ${token}` } : {};
+
   const res = await fetch(`${API}${path}`, {
     method: 'DELETE',
     headers: h
   });
+
   if (!res.ok) throw new Error(`${res.status}`);
+
   return res.json();
 }
 
@@ -77,14 +90,23 @@ export async function revokeToken(id, token) {
   return del(`/admin/tokens/${id}`, token);
 }
 
+// Browser-only localStorage helpers.
+// During SSR, getToken() returns null instead of crashing.
+
 export function setToken(tk) {
+  if (!browser) return;
+
   localStorage.setItem('git-token', tk);
 }
 
 export function getToken() {
+  if (!browser) return null;
+
   return localStorage.getItem('git-token');
 }
 
 export function clearToken() {
+  if (!browser) return;
+
   localStorage.removeItem('git-token');
 }
