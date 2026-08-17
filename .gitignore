@@ -21,3 +21,6 @@
 # Vite
 /front/vite.config.js.timestamp-*
 /front/vite.config.ts.timestamp-*
+
+# Cabal build artifacts
+/back/dist-newstyle
