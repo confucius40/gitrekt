@@ -1,0 +1,23 @@
+/front/node_modules
+
+# Output
+/front/.output
+/front/.vercel
+/front/.netlify
+/front/.wrangler
+/front/.svelte-kit
+/front/build
+
+# OS
+/front/.DS_Store
+/front/Thumbs.db
+
+# Env
+/front/.env
+/front/.env.*
+/front/!.env.example
+/front/!.env.test
+
+# Vite
+/front/vite.config.js.timestamp-*
+/front/vite.config.ts.timestamp-*
