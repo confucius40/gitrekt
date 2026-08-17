@@ -11,7 +11,7 @@ Stack
 * **Haskell**: Backend
 * **Rust/Slint/WASM**: Frontend
 
-The old backend is made in Svelte, im re-writing it in Rust.
+The old frontend was made in Svelte, im re-writing it in Rust.
 
 Disclaimer
 ----
