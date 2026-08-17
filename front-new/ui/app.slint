@@ -1,0 +1,66 @@
+import { VerticalBox, HorizontalBox, Button, TextInput } from "std-widgets.slint";
+export component MainWindow inherits Window {
+    title: "GitRekt";
+    width: 1100px;
+    height: 700px;
+    HorizontalBox {
+        spacing: 0px;
+        Rectangle {
+            width: 220px;
+            background: #17171c;
+            VerticalBox {
+                padding: 20px;
+                spacing: 12px;
+                Text {
+                    text: "GitRekt";
+                    color: white;
+                    font-size: 24px;
+                }
+                Text {
+                    text: "for the possible future";
+                    color: #888894;
+                    font-size: 12px;
+                }
+                Rectangle {
+                    height: 1px;
+                    background: #303038;
+                }
+                Button {
+                    text: "Repositories";
+                }
+                Button {
+                    text: "Explore";
+                }
+                Button {
+                    text: "Settings";
+                }
+            }
+        }
+        Rectangle {
+            background: #101014;
+            VerticalBox {
+                padding: 32px;
+                spacing: 20px;
+                Text {
+                    text: "Welcome to GitRekt";
+                    color: white;
+                    font-size: 32px;
+                }
+                Text {
+                    text: "A git forge for the possible future.";
+                    color: #aaaab5;
+                    font-size: 16px;
+                }
+                HorizontalBox {
+                    spacing: 10px;
+                    TextInput {
+                        placeholder-text: "Search repositories...";
+                    }
+                    Button {
+                        text: "Search";
+                    }
+                }
+            }
+        }
+    }
+}
